@@ -1,0 +1,28 @@
+1. Windows cmd üzerinden
+pip install cx_Oracle
+
+2. Oracle instant client 64 bit yüklenir
+Windows bilgisayarda uygun bir dizine açılır.
+Örnek C:/instant_client
+3. Ortam değişkenlerinden ORACLE_HOME = C:/instant_client 
+
+4. Jupyter notebook başlatırlır.
+
+5. Yeni bir Python3 Notebook açılır. 
+Aşağıdaki kodlar çalıştırılır.
+import os
+os.chdir("C:/oracle/instantclient_18_5")
+import cx_Oracle
+import pandas as pd
+ip = 'xxx.xxx.xxx.xxx'
+port = xxx
+SID = 'Xxx'
+dsn_tns = cx_Oracle.makedsn(ip, port, SID)
+ 
+connection = cx_Oracle.connect('username', 'password', dsn_tns)
+ 
+query = """SELECT*
+           FROM USER_TABLES"""
+df_ora = pd.read_sql(query, con=connection)
+df_ora.head()
+

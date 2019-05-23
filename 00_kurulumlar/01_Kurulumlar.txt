@@ -1,0 +1,161 @@
+SAFHA-1 PYTHON TEMEL, VERİ ANALİZİ VE MAKİNE ÖĞRENMESİ İLE İLGİLİ KURULUMLAR
+===============================================================================
+
+1. Anaconda kurulu ise ve pip ile paket yükleyebiliyorsak onunla devam edelim. Eğer ssl gibi bazı hatalar 
+	alıyor ve pip ile paket yüklememiz engelleniyorsa Anaconda'yı kaldıralım. Son sürüm Anaconda'lar paket 
+	yüklerken ssl hatası veriyor.
+	Ayrıca Anaconda aşırı ve gereksiz paket ve yazılım yüklüyor. İhtiyacımız olmayan bir çok şeyi yüklüyoruz.
+	Paket yüklemelerini daha rahat yapabileceğimiz sürüm olan Python 3.6.5 sürümünü kullanacağız.
+	
+
+2. https://www.python.org/downloads/release/python-365/
+adresinden 
+Windows x86-64 executable installer
+indirip kuruluma başlayalım.
+Kurulum esnasında PATH'e ekle seçeneğini seçelim.
+
+3.
+$ where python
+C:\Python\Python36\python.exe
+
+$ python -V
+Python 3.6.5
+
+pip -V
+pip 9.0.3 from c:\python\python36\lib\site-packages (python 3.6)
+
+4. pip upgrade
+python -m pip install --upgrade pip
+
+5. Temel paketlerin kurulumu
+
+pip install pandas
+pip install jupyter
+pip install findspark
+pip install matplotlib
+pip install seaborn
+pip install sklearn
+
+SAFHA-2 DERİN ÖĞRENME İLE İLGİLİ KURULUMLAR
+===============================================================================
+
+
+
+SAFHA-3 BÜYÜK VERİ İLE İLGİLİ KURULUMLAR
+===============================================================================
+Uyarı: Bu eğitim için en az 4 çekirdek işlemcili, sanallaştırma desteği olan
+	12 GB RAM'li bigisayar, ideal olarak 16 GB RAM'li bilgisayar gerekir.
+Uyarı: Bilgisayarım'sa sağ tıkla performance tabından sağ aşağıda sanallaştırma desteğinin açık olduğunu kontrol ediniz. 
+Değilse bios ayarlarından açmalısınız.
+
+1. VirtualBox'ı indir.
+
+2. https://www.cloudera.com/downloads/hortonworks-sandbox.html
+adresinden gerekli kayıtları yaptıktan sonra 
+HDP 2.6.4 Sandbox'ı indir. (Büyük dosya uzun sürecektir)
+
+3. VirtualBox kur 
+	Mac'te bunun için güvenlik ayarlarından üçüncü parti yazılım kurulumuna izin vermek gerekir. 
+
+4. Sandbox'ı VirtualBox üzerinde aç (mac için küçük boyutlu dosyaya tıklayarak aç)
+	
+5. Git ile eğitim için bir dizin oluştur:
+	Komut: mkdir egitim_icerigi
+	
+	Komut: cd egitim_icerigi
+	
+	içine girip
+	
+	Komut: git init 
+	ile bu dizinde git'i başlat.
+	
+	İstersek bu dizin içinde 
+	ls -al ile 
+	.git klasörünü ve içeriğini görebiliriz (genel git bilgisi)
+	
+6. Kursun github reposunu ekleme
+	Komut: git remote add origin https://github.com/erkansirin78/preprocessing-analysis-ml-dl-big-data.git
+
+7. Github'daki en güncel içeriği çalışma diznine çekme
+	Komut: git pull origin master
+
+
+8. Sandbox temel ayarlar 
+	https://hortonworks.com/tutorial/learning-the-ropes-of-the-hortonworks-sandbox/
+	
+	8.1. hosts dosyasına isim ve ip ekleme
+	-----------------------------------------
+	
+		Mac için terminalden 
+		Komut: echo '127.0.0.1 sandbox-hdp.hortonworks.com sandbox-hdf.hortonworks.com' | sudo tee -a /private/etc/hosts
+		
+		İşlemin kontrolü:terminalden
+		Komut: cat /private/etc/hosts
+		
+		komutundan sonra yukarıdaki satırın hosts dosyasına eklendiğini görmeliyiz.
+		
+		Diğer kontrol 
+		terminalden 
+		ping sandbox-hdp.hortonworks.com 
+		
+		ping atmalıdır.
+		
+		Ctrl+c ile işlemi durdur.
+	
+	
+		Windows users:
+
+		Run Notepad as administrator.
+		Open hosts file located in: c:\Windows\System32\drivers\etc\hosts
+		Add 127.0.0.1 localhost sandbox-hdp.hortonworks.com sandbox-hdf.hortonworks.com
+		Save the file
+	
+	8.2. Terminalden Sandbox'a erişim
+	------------------------------------
+	Login Credentials linkine tıkla
+	https://hortonworks.com/tutorial/learning-the-ropes-of-the-hortonworks-sandbox/#login-credentials
+	Burada kullanıcı ve şifreler var.
+	
+	Mac için:
+	Terminalden root kullanıcısı ile Sandbox'a bağlanma(Mac):
+	 ssh -v root@sandbox-hdp.hortonworks.com -p 2222
+	 
+	Windows için gitbash veya putty üzerinden:
+	ssh root@sandbox-hdp.hortonworks.com -p 2222
+	 
+	İlk girişte kullanılacak şifre: hadoop 
+	daha sonra değiştirmeye zorlayacaktır.
+	
+	8.3. Ambari admin kullanıcısı şifresini değiştirme: 
+	----------------------------------------------------
+	root ile Sandbox'a bağlandıktan sonra:
+	ambari-admin-password-reset
+	
+	yeni şifre girmemizi isteyecektir.
+	Ankara06
+	
+	Yeni şifre girdikten sonra Ambari yeniden başlar
+	
+	Sonra browser 
+	http://sandbox-hdp.hortonworks.com:8080
+	
+	Kullanıcı: admin 
+	
+	Şifre: az önce belirlediğimiz şifre (Ankara06)
+	
+	
+	8.4. Alternatif terminal bağlantısı:
+	----------------------------------------
+	ssh ile bağlantı sorunu oldu alternatif yöntem
+	
+	browser
+	http://sandbox-hdp.hortonworks.com:4200/
+	yazdık ve web terminale ulaştık.
+	
+	root ve hadoop ile giriş yapıyoruz.
+	
+	Şifre değiştirmek için yeni password istediğinde yeni passwordu giriyoruz
+	
+	
+	
+	

@@ -47,7 +47,7 @@ dosyasını indirin
 
 9. postgresql-42.2.5.jar dosyasını nifi container içine taşıma
 
-docker cp  /c/Users/user/Downloads/postgresql-42.2.5.jar 3aba5ae944b3:/
+docker cp  /c/Users/user/Downloads/postgresql-42.2.5.jar <nificontainerid>:/
 
 
 NiFi arayüzüne erişim 

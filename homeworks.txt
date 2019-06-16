@@ -25,7 +25,6 @@ nesne2.standart_sapma(liste)
 
 
 
-
 Ev ödevi-2 
 ===============
 

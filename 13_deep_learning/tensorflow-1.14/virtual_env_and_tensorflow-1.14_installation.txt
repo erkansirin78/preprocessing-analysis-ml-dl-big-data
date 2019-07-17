@@ -1,0 +1,73 @@
+cmd komut satırını açınız
+
+1. virtual environment kurulumu:
+pip install virtualenv
+pip install virtualenvwrapper-win
+
+2. kontrol
+virtualenv --version
+
+3. virtualenv için bir dizin oluştur ve içine gir.
+mkdir venv_tensorflow-1
+cd venv_tensorflow-1
+
+4. proje oluştur 
+mkvirtualenv tensorflow-1
+
+
+
+5. Artık virtualenv oluştu örnek komutlar: komut satırı başına (tensorflow-1) ibaresi gelmelidir.
+python -V
+Çıktısı:
+Python 3.6.5
+
+pip -V
+Çıktısı:
+pip 19.1.1 from c:\users\user\envs\tensorflow-1\lib\site-packages\pip (python 3.6)
+
+
+6. proje dizini oluşturmak
+
+mkdir dev
+cd dev
+setprojectdir .
+
+     "D:\Calisma_dizini\dev" is now the project directory for
+    virtualenv "C:\Users\user\Envs\tensorflow-1"
+
+    "D:\Calisma_dizini\dev" added to
+    C:\Users\user\Envs\tensorflow-1\Lib\site-packages\virtualenv_path_extensions.pth
+
+(tensorflow-1) D:\Calisma_dizini\dev>
+
+7. virtualenv'dan çıkmak 
+deactivate
+
+8. Tekrar projeye devam etmek için 
+workon tensorflow-1
+
+9. tensorflow-1.14 ve keras yüklemek
+pip install tensorflow
+pip install keras
+pip install pandas
+pip install matplotlib
+pip install sklearn
+pip install pillow
+
+10. virtualenv'dan jupyter kullanmak için 
+	10.1.
+	pip install jupyter
+
+	10.2.
+	ipython kernel install --user --name=tensorflow-1
+	Installed kernelspec tensorflow_1 in C:\Users\user\AppData\Roaming\jupyter\kernels\tensorflow-1
+
+
+11. jupyter notebook çalıştırdığımızda 
+new butonuna tıkladığımızda artık Pyton 3 ile birlikte tensorflow-1'i de görüyor olacağız.
+
+
+
+
+
+

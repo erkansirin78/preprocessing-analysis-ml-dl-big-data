@@ -175,4 +175,4 @@ sqoop import --connect jdbc:mysql://sandbox-hdp.hortonworks.com/azhadoop \
 --hive-table azhadoop.iris_hive --target-dir /tmp/hive_temp
 
 
-hive tablosundan eklen satırı kontrol edebilirsiniz.
+hive tablosundan eklenen satırı kontrol edebilirsiniz.

@@ -60,6 +60,8 @@ Windows bilgisayarlarda kaç tane disk ortamı var daha iyi anlamak ve kopyalama
 	3.5. hdfs'ten linux lokal diske veri kopyalama (copyToLocal)
 		hdfs dfs -copyToLocal hdfs://sandbox-hdp.hortonworks.com/user/maria_dev/simple_data.csv /home/maria_dev
 		
+		Not: Bu operasyon için hedef dizinde okuma yetkisi, lokal diskte yazma yetkisi bulunmalıdır.
+		
 Diğer hdfs komutları için referans:
 https://hadoop.apache.org/docs/r2.7.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#cat
 	

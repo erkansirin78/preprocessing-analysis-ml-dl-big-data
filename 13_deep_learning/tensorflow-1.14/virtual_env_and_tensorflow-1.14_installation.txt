@@ -1,4 +1,5 @@
-cmd komut satırını açınız
+﻿cmd komut satırını açınız
+
 
 1. virtual environment kurulumu:
 pip install virtualenv
@@ -7,13 +8,20 @@ pip install virtualenvwrapper-win
 2. kontrol
 virtualenv --version
 
-3. virtualenv için bir dizin oluştur ve içine gir.
+3. virtualenv için bir uygun bir çalışma dizni oluştur ve içine gir.
 mkdir venv_tensorflow-1
 cd venv_tensorflow-1
 
+	
+	mkvirtualenv is not found tarzında bir hata alınırsa
+	Şu komutları çalıştıralım: 
+	virtualenv tensorflow-1
+	tensorflow-1\Scripts\activate
+	
 4. proje oluştur 
 mkvirtualenv tensorflow-1
-
+çalışmaz ise 
+virtualenv tensorflow-1
 
 
 5. Artık virtualenv oluştu örnek komutlar: komut satırı başına (tensorflow-1) ibaresi gelmelidir.
@@ -68,6 +76,21 @@ new butonuna tıkladığımızda artık Pyton 3 ile birlikte tensorflow-1'i de g
 
 
 
+Olası hatalar ve çözüm önerileri
+-----------------------------------------------------
+1. 
+Sorun: pip is configured with locations that require TLS/SSL, however the ssl module in Python is not available.
+
+Çözüm : activate root
+
+2. 
+Could not install packages due to an EnvironmentError: [WinError 5] Erişim engellendi: 'c:\\programdata\\anaconda3\\lib\\site-packages\\__pycache__\\easy_install.cpython-37.pyc'
+Consider using the `--user` option or check the permissions.
+
+Çözüm: cmd'yi yöneticiolarak başlatmak
 
 
+3. ssl bağlantı hatası 
+
+Çözüm: Anaconda Library bin dizinini ortam değişkenleri path'e eklemek
 

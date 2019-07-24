@@ -31,6 +31,7 @@ jar dosyasýný ana makineden sanal makineye kopyala (WinSCP uygulamasý kullanýlab
 
 5.
 word count yapýlacak text dosyasýný hdfs'e kopyala
+kuruyemisler.txt dosyasý https://raw.githubusercontent.com/erkansirin78/preprocessing-analysis-ml-dl-big-data/master/14_big_data/03-Hadoop-Temel-Bilesenler/mapreducewordcount/kaynaklar/kuruyemisler.txt
 	Önce hdfs'te bir dizin oluþtur
 	[maria_dev@sandbox-hdp ~]$ hdfs dfs -mkdir /user/maria_dev/kuruyemis
 	[maria_dev@sandbox-hdp ~]$ hdfs dfs -put /home/maria_dev/mapreducewordcount_jar/kuruyemisler.txt /user/maria_dev/kuruyemis

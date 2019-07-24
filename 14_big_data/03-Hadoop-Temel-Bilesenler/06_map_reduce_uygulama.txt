@@ -1,49 +1,49 @@
 UYGULAMA-1
 =====================================================================================================================================
-Bu uyglamada kendi yazdığımız mapreduce kodları ile wordcount uygulaması yapacağız.
-Uygulama bir dosya içindeki kuryemiş isimlerinden hangisinin kaçar tane tekrarlandığını hesaplayarak 
-hdfs'e sonucu yazacaktır.
+Bu uyglamada kendi yazdÄ±ÄŸÄ±mÄ±z mapreduce kodlarÄ± ile wordcount uygulamasÄ± yapacaÄŸÄ±z.
+Uygulama bir dosya iÃ§indeki kuryemiÅŸ isimlerinden hangisinin kaÃ§ar tane tekrarlandÄ±ÄŸÄ±nÄ± hesaplayarak 
+hdfs'e sonucu yazacaktÄ±r.
 
 
 1.
-Intellij proje oluştur.
-	proje dosyası:
+Intellij proje oluÅŸtur.
+	proje dosyasÄ±:
 	03-Hadoop-Temel-Bilesenler\mapreducewordcount
 
 
 2. 
-Mapreduce kodlarını yaz.
+Mapreduce kodlarÄ±nÄ± yaz.
 
-	intellij proje pom.xml dosyası:
+	intellij proje pom.xml dosyasÄ±:
 	03-Hadoop-Temel-Bilesenler\mapreducewordcount\pom.xml
 
 
 3.
-Intellij üzerinden jar dosyası oluştur.
-Hazır jar dosyası: https://1drv.ms/f/s!Al2Mr2odzhB_irt1UUjsJf-7-cs7EA
+Intellij Ã¼zerinden jar dosyasÄ± oluÅŸtur.
+HazÄ±r jar dosyasÄ±: https://1drv.ms/f/s!Al2Mr2odzhB_irt1UUjsJf-7-cs7EA
 
 4. 
-jar dosyasını ana makineden sanal makineye kopyala (WinSCP uygulaması kullanılabilir)
+jar dosyasÄ±nÄ± ana makineden sanal makineye kopyala (WinSCP uygulamasÄ± kullanÄ±labilir)
 
-	Alternatif olarak komut satırından scp komutu kullanılabilir 
+	Alternatif olarak komut satÄ±rÄ±ndan scp komutu kullanÄ±labilir 
 	scp mapreducewordcount.jar maria_dev@sandbox-hdp.hortonworks.com:
 
 
 5.
-word count yapılacak text dosyasını hdfs'e kopyala
-kuruyemisler.txt dosyası https://raw.githubusercontent.com/erkansirin78/preprocessing-analysis-ml-dl-big-data/master/14_big_data/03-Hadoop-Temel-Bilesenler/mapreducewordcount/kaynaklar/kuruyemisler.txt
-	Önce hdfs'te bir dizin oluştur
+word count yapÄ±lacak text dosyasÄ±nÄ± hdfs'e kopyala
+kuruyemisler.txt dosyasÄ± https://raw.githubusercontent.com/erkansirin78/preprocessing-analysis-ml-dl-big-data/master/14_big_data/03-Hadoop-Temel-Bilesenler/mapreducewordcount/kaynaklar/kuruyemisler.txt
+	Ã–nce hdfs'te bir dizin oluÅŸtur
 	[maria_dev@sandbox-hdp ~]$ hdfs dfs -mkdir /user/maria_dev/kuruyemis
 	[maria_dev@sandbox-hdp ~]$ hdfs dfs -put /home/maria_dev/mapreducewordcount_jar/kuruyemisler.txt /user/maria_dev/kuruyemis
 
 6.
-wordcount programını çalıştır 
+wordcount programÄ±nÄ± Ã§alÄ±ÅŸtÄ±r 
 [maria_dev@sandbox-hdp ~]$ hadoop jar /home/maria_dev/mapreducewordcount_jar/mapreducewordcount.jar com.veribilimiokulu.mapreduce.MR2WordCount /user/maria_dev/kuruyemis /user/maria_dev/kuruyemis_mr_output
 
-Uygulama çalışırken ResourceManager UI'den gelişmeler gözlenir.
+Uygulama Ã§alÄ±ÅŸÄ±rken ResourceManager UI'den geliÅŸmeler gÃ¶zlenir.
 
 
-	Uygulama çalışmış ise aşağıdaki gibi bir log üretmiş olacaktır
+	Uygulama Ã§alÄ±ÅŸmÄ±ÅŸ ise aÅŸaÄŸÄ±daki gibi bir log Ã¼retmiÅŸ olacaktÄ±r
 19/07/20 07:54:04 INFO client.RMProxy: Connecting to ResourceManager at sandbox-hdp.hortonworks.com/172.17.0.2:8032
 19/07/20 07:54:04 INFO client.AHSProxy: Connecting to Application History server at sandbox-hdp.hortonworks.com/172.17.0.2:10200
 19/07/20 07:54:05 INFO input.FileInputFormat: Total input paths to process : 1
@@ -117,15 +117,15 @@ Uygulama çalışırken ResourceManager UI'den gelişmeler gözlenir.
 
 
 7.
-Sonuçları gör 
+SonuÃ§larÄ± gÃ¶r 
 [maria_dev@sandbox-hdp ~]$ hdfs dfs -cat /user/maria_dev/kuruyemis_mr_output/part-r-00000                    
 ANTEP FISTIK    2244
 CEVIZ   13020
 FINDIK  7842
 KAJU    6186
-YER FISTIĞI     1866
-ÇIĞ FINDIK      1866
-ÜZÜM    7716
+YER FISTIÄI     1866
+Ã‡IÄ FINDIK      1866
+ÃœZÃœM    7716
 
 
 
@@ -134,10 +134,10 @@ YER FISTIĞI     1866
 
 UYGULAMA-2
 =====================================================================================================================================
-Bu uygulama HDP dağıtımı içinde hazır bulunan jar dosyasını çalıştırmak olacak 
+Bu uygulama HDP daÄŸÄ±tÄ±mÄ± iÃ§inde hazÄ±r bulunan jar dosyasÄ±nÄ± Ã§alÄ±ÅŸtÄ±rmak olacak 
 [maria_dev@sandbox-hdp ~]$ hadoop jar /usr/hdp/2.6.4.0-91/hadoop-mapreduce/hadoop-mapreduce-examples.jar pi 20 20
 
-Beklenen çıktı:
+Beklenen Ã§Ä±ktÄ±:
 Number of Maps  = 20
 Samples per Map = 20
 Wrote input for Map #0

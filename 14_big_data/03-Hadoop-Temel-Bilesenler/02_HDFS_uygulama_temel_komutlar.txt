@@ -1,7 +1,9 @@
 Windows bilgisayarlarda kaç tane disk ortamı var daha iyi anlamak ve kopyalama yapmak açısından WinSCP kurulur.
 
 //// Sanal Makine Lokalinden HDFS'e veri taşıma ///////////////////
-1. ssh root@sandbox-hdp.hortonworks.com -p 2222 ile Sandbox' terminal den bağlanın
+1. 
+ssh root@sandbox-hdp.hortonworks.com -p 2222 
+ile Sandbox' terminalden bağlanın
 
 2. Sanal makine Linux lokal diskine veri setini indirme:
 	kullanıcı değiştir.

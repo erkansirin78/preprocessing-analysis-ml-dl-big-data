@@ -10,7 +10,7 @@
 
 	3.1. Ambari -> YARN Queue Manager üzerinden root kuyuruğa bağlı olarak hive kuyruğu yaratılır
 	
-	3.2. hive %60, default % 40 kaynak verilir.
+	3.2. hive %60, default % 40 kaynak verilir.  (max capacity ikisi de % 100 yapılır)
 	
 	3.3. Ambari -> YARN -> Configs ->  Advanced  -> Scheduler -> Capacity Scheduler içinde
 		
@@ -49,6 +49,9 @@ başlaması gerekenler başlar.
 	
 	
 	
-	
+Örnek hive sorgusu:
+SELECT workclass, COUNT(*) AS SAYI FROM adult
+GROUP BY workclass
+ORDER BY SAYI DESC	
 	
 	

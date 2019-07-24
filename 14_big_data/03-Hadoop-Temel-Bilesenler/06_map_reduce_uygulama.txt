@@ -20,6 +20,7 @@ Mapreduce kodlarýný yaz.
 
 3.
 Intellij üzerinden jar dosyasý oluþtur.
+Hazýr jar dosyasý: https://1drv.ms/f/s!Al2Mr2odzhB_irt1UUjsJf-7-cs7EA
 
 4. 
 jar dosyasýný ana makineden sanal makineye kopyala (WinSCP uygulamasý kullanýlabilir)

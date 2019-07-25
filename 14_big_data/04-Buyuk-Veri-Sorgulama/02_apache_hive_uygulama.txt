@@ -1,4 +1,4 @@
-﻿1. Ambari Hive2 View üzerinden Uplad Table ile adult veri seti Hive'a tablo olarak yüklenir ve örnek sorgular çalıştırılır.
+﻿1. Ambari Hive2 View üzerinden Upload Table ile adult veri seti Hive'a tablo olarak yüklenir ve örnek sorgular çalıştırılır.
 
 
 2. Sorgular esnasında YARN Resource Manager arayüzündeki değişiklikler gözlemlenir.

@@ -140,7 +140,7 @@ UYGULAMA-2  (mysql -> sqoop ->  Hive)
 7.
 
 Hive içinde 
-CREATE TABLE IF NOT EXISTS azhadoop
+CREATE DATABASE IF NOT EXISTS azhadoop
 veri tabanı yaratalım.
 
 8. Aktarım:
@@ -238,7 +238,7 @@ postgres
 
 
 
-3. posgre container id öğrenme
+3. posgresql container id öğrenme
 docker ps
 veya
 docker ps -a
@@ -314,7 +314,7 @@ COPY advertising FROM '/Advertising.csv' DELIMITERS ',' CSV HEADER;
 COPY 200
 
 
-
+Sandbox'tayız.
 11. postgresql driver indir 
 [root@sandbox-hdp ~]# wget https://jdbc.postgresql.org/download/postgresql-42.2.6.jar
 
@@ -420,6 +420,14 @@ sqoop export --connect jdbc:mysql://sandbox-hdp.hortonworks.com/azhadoop \
 --driver com.mysql.jdbc.Driver \
 --username root --password hadoop \
 --export-dir /user/maria_dev/sqoop_import/iris/part-m-00000 \
+--m 1 --table iris_mysql
+
+
+
+sqoop export --connect jdbc:mysql://sandbox-hdp.hortonworks.com/azhadoop \
+--driver com.mysql.jdbc.Driver \
+--username root --password hadoop \
+--export-dir /user/maria_dev/sqoop_import/iris \
 --m 1 --table iris_mysql
 
 3. mysql kontrol

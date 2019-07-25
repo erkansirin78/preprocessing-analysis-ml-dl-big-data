@@ -5,7 +5,7 @@ Server/Dağıtık mode kurulumu
 	- java 8 kurulu olmalıdır.
 	- Zookeeper kurulu olmalıdır 
 	- HDFS veya Amazon S3 gibi dağıtık bir dosya sistemi
-
+	- Sandbox'ta yeterli RAM olmalıdır. HBase,Oozie, Falcon, Storm,Flume, AmbariInfra, Kafka, Knox kapalı olmalıdır.
 
 2. /home/maria_dev  Drill'i indirelim
 wget http://archive.apache.org/dist/drill/drill-1.12.0/apache-drill-1.12.0.tar.gz

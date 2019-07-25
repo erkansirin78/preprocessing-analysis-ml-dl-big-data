@@ -101,7 +101,7 @@ hbase(main):013:0> exit
 
 
 
-
+hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.seperator=, -Dimporttsv.columns="HBASE_ROW_KEY,personel:isim,personel:yas,meslek:meslek,meslek:sehir,meslek:sehir,meslek:gelir" simple_data /user/maria_dev/simple_data.csv 
 
 
 

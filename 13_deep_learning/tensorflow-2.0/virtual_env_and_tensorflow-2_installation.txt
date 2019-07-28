@@ -7,34 +7,32 @@
 2. Çalışma dizni  ve sanal ortamın yaratılması:
 mkdir python_egitim
 cd python_egitim
-python -m venv tensorflow-1
+python -m venv tensorflow-2
 
 	Son komut sanal ortam oluşturur ve biraz zaman alabilir.
 
 2. kontrol:
 dir
 
-		Çıktı:
-		  Volume in drive C has no label.
+		 Volume in drive C has no label.
 		 Volume Serial Number is 55F6-35C4
 
-		 Directory of C:\Users\user\python_egitim\tensorflow-1\dev
+		 Directory of C:\Users\user\python_egitim
 
-		28.07.2019  15:02    <DIR>          .
-		28.07.2019  15:02    <DIR>          ..
-		28.07.2019  15:00    <DIR>          .ipynb_checkpoints
-		28.07.2019  15:02               977 Untitled.ipynb
-					   1 File(s)            977 bytes
-					   3 Dir(s)  832.709.644.288 bytes free
+		28.07.2019  15:10    <DIR>          .
+		28.07.2019  15:10    <DIR>          ..
+		28.07.2019  15:10    <DIR>          tensorflow-2
+					   0 File(s)              0 bytes
+					   4 Dir(s)  832.660.901.888 bytes free
 			   
 			   
 
 3. Oluşturulan sanal ortamı aktif hale getirme:
-cd tensorflow-1\Scripts
+cd tensorflow-2\Scripts
 activate
 
 	bu komuttan sonra 
-	promt başında (tensorflow-1) gelecektir.
+	promt başında (tensorflow-2) gelecektir.
 	
 cd ..
 mkdir dev
@@ -52,37 +50,36 @@ pip install --upgrade pip
 
 	PermissionError: [WinError 5] Access is denied: 
 	hatası verebilir aldırış etmeden komutu tekrarlayınız.
-	Requirement already up-to-date: pip in c:\users\user\python_egitim\tensorflow-1\lib\site-packages (19.2.1)
+	Çıktı:
+	Requirement already up-to-date: pip in c:\users\user\python_egitim\tensorflow-2\lib\site-packages (19.2.1)
 
 pip -V
 	Çıktısı:
-	pip 19.1.1 from c:\users\user\envs\tensorflow-1\lib\site-packages\pip (python 3.6)
+	pip 19.2.1 from c:\users\user\python_egitim\tensorflow-2\lib\site-packages\pip (python 3.6)
 
 cd ..
 
-5. tensorflow-1.14, keras yüklemek ve diğer sık kullanılan paketleri yüklemek
+5. pip install tensorflow==2.0.0-alpha0, keras yüklemek ve diğer sık kullanılan paketleri yüklemek
 
-pip install tensorflow keras pandas matplotlib sklearn pillow jupyter 
+pip install pip install tensorflow==2.0.0-alpha0 keras pandas matplotlib sklearn pillow jupyter 
 	Niçin sanal ortama da jupyter kurmalıyız:
 	https://stackoverflow.com/questions/38221181/no-module-named-tensorflow-in-jupyter
 
 6. Kontrol:
 python
-
-		python shell giriş >>> gelecektir.
-		
-		
+	
+	python shell giriş >>> gelecektir.
 >>>import tensorflow as tf
 >>>tf.__version__
 
 	Çıktısı:
-	'1.14.0'
+	'2.0.0-alpha0'
 	Bazı uyarılar verebilir onlar hata değil kulak asmayın
-
+	
+	
 exit()
 
 		python shell çıkış.
-		
 7. Sanal ortamı deactive etmek:
 deactivate
 
@@ -93,14 +90,13 @@ activate
 cd ..
 cd dev
 
-
 8. virtualenv'dan jupyter kullanmak için 
-ipython kernel install --user --name=tensorflow-1
-	Installed kernelspec tensorflow-1 in C:\Users\user\AppData\Roaming\jupyter\kernels\tensorflow-1
+ipython kernel install --user --name=tensorflow-2
+	Installed kernelspec tensorflow_1 in C:\Users\user\AppData\Roaming\jupyter\kernels\tensorflow-1
 
 
 9. jupyter notebook çalıştırdığımızda 
-new butonuna tıkladığımızda artık Pyton 3 ile birlikte tensorflow-1'i de görüyor olacağız.
+new butonuna tıkladığımızda artık Pyton3 ile birlikte tensorflow-2'yi de görüyor olacağız.
 
 
 10. Jupyter içinde tensorflow kontrol
@@ -110,11 +106,15 @@ import tensorflow as tf
 tf.__version__
 
 	Çıktı:
-	'1.14.0'
+	'2.0.0-alpha0'
 	
 
 
-11. Jupyter notebook kapatıldıktan sonra 
+11. Jupyter kapatma:
+	komut satırında
+Ctrl+C
+
+	Jupyter notebook kapatıldıktan sonra 
 deactivate
 	komutu ile sanal ortam kapatılır.
 	Ortamı tekrar aktif etmek sadece Scripts klasörü içinden mümkündür.

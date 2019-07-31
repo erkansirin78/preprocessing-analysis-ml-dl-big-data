@@ -4,31 +4,33 @@ import org.apache.spark.sql.{SparkSession}
 import org.apache.spark.sql.{functions => F}
 import org.apache.log4j.{Logger, Level}
 import org.apache.spark.sql.{functions => F}
-
-object SparkDeneme extends App {
-  Logger.getLogger("org").setLevel(Level.ERROR)
-
-  val spark = SparkSession.builder()
-    .appName("SparkDeneme")
-    .master("local[4]")
-    .getOrCreate()
-
-  import spark.implicits._
-  val sc = spark.sparkContext
+import org.apache.spark.SparkConf
+object SparkDeneme {
+  def main(args: Array[String]): Unit = {
 
 
-  val dfFromList = sc.parallelize(List(1,2,3,4,5,6)).toDF("rakamlar")
-  // dfFromList.printSchema()
+    Logger.getLogger("org").setLevel(Level.INFO)
 
-  // dfFromList.show()
+    val sparkConf = new SparkConf()
+      .setMaster("yarn")
+      .setAppName("SparkDeneme")
+      .set("spark.hadoop.fs.defaultFS","hdfs://node1.impektra.com:8020")
+      .set("spark.hadoop.yarn.resourcemanager.address","node1.impektra.com:8050")
+      .set("spark.hadoop.yarn.resourcemanager.scheduler.address","node1.impektra.com:8030")
+      .set("spark.yarn.jars","hdfs://node1.impektra.com:8020/tmp/spark_jars/*.jar")
 
-  val dfFromFile = spark.read.format("csv").option("header",true)
-    .option("inferSchema",true)
-    .option("header", true)
-    .load("D:/Datasets/retail_db/orders.csv")
 
-  dfFromFile.groupBy("orderStatus")
-    .agg(F.count("orderId").as("SAYI"))
-    .sort(F.desc("SAYI"))
-    .show(10)
+    val spark = SparkSession.builder()
+      .config(sparkConf)
+      .getOrCreate()
+
+    import spark.implicits._
+    val sc = spark.sparkContext
+
+
+    val dfFromList = sc.parallelize(List(1,2,3,4,5,6)).toDF("numbers")
+
+    dfFromList.show()
+  }
+
 }
